@@ -1,0 +1,38 @@
+{% extends 'layout.html' %}
+
+
+{% block title %}
+    Inicio
+{% endblock %}
+
+
+{% block content %}
+    <h1 class="title">
+        Formularios en DJango
+    </h1>
+    
+    {% if form.errors %}
+        <strong class="rojo">    
+            Hay errores en el Formulario
+        </strong>
+    {% endif %}
+
+
+    <form action="" method="POST">
+{% comment 'Datos de la pagina index' %}
+En esta pagina se mostrara la bienvenida al sistema
+{% endcomment %}
+<h1 class="title">Página {{titulo}}</h1>
+<p>Usango templates</p>
+{% if mensaje %}
+        <p> Mensaje: {{mensaje}} </p>
+    {% else %}
+    <strong>El Mensaje no tiene contenido</strong>
+    {% endif %}
+
+
+    {% include 'listado_estudiantesregistrados.html' with encabezado="Estudiantes Registrados" %}
+    {% include 'filtros.html' with encabezado="Uso de Filtros" %}
+    
+    <p>Año: 2024</p>
+{% endblock %}
